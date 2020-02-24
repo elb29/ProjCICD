@@ -5,6 +5,6 @@ jdk:
   - openjdk13
 jobs:
   include: 
-    - stage: Integration test.
-      script : ./src/test/java/com/example/helloworld/IntegrationTest.java
+    - stage: Integration test
+      script : src/test/java/com/example/helloworld/IntegrationTest.java
     
