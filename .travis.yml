@@ -8,5 +8,5 @@ before_install:
 jobs:
   include: 
     - stage: Integration test
-      script : src/test/java/com/example/helloworld/IntegrationTest.java
+      script : ./src/test/java/com/example/helloworld/IntegrationTest.java
     
