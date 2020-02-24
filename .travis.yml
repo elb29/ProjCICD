@@ -7,6 +7,7 @@ before_install:
         - chmod +x src/test/java/com/example/helloworld
 jobs:
   include: 
+    - script : ./src/test/resources/test-example.yml 
     - stage: Integration test
       script : ./src/test/java/com/example/helloworld/IntegrationTest.java
     
