@@ -1,8 +1,10 @@
 language: java
 jdk:
   - openjdk8
-  #- openjdk11
-  #- openjdk13
+  - openjdk11
+  - openjdk13
+before_install:
+        - chmod +x src/test/java/com/example/helloworld/IntegrationTest.java
 jobs:
   include: 
     - stage: Integration test
