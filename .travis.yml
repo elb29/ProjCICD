@@ -4,7 +4,7 @@ language: java
  # - openjdk11
  # - openjdk13
 before_install:
-        - chmod +x src/test/java/com/example/helloworld/IntegrationTest.java
+        - chmod +x src/test/java/com/example/helloworld
 jobs:
   include: 
     - stage: Integration test
