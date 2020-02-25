@@ -87,7 +87,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>${project.version}</version>
+            <version>1.4.197</version>
         </dependency>
         <dependency>
             <groupId>io.dropwizard</groupId>
@@ -111,6 +111,7 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
+            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.test-framework.providers</groupId>
@@ -126,6 +127,7 @@
                     <artifactId>junit</artifactId>
                 </exclusion>
             </exclusions>
+            <version>2.29</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.test-framework.providers</groupId>
@@ -141,6 +143,7 @@
                     <artifactId>junit</artifactId>
                 </exclusion>
             </exclusions>
+            <version>2.29</version>
         </dependency>
     </dependencies>
 
