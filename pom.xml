@@ -33,7 +33,7 @@
                 <artifactId>dropwizard-dependencies</artifactId>
                 <version>${project.version}</version>                 
                 <type>pom</type>
-                <!-- <scope>import</scope> -->
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
