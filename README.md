@@ -30,7 +30,16 @@ Pour tester l'exemple, suivre les indications ci-dessous :
 	http://localhost:8080/hello-world
 
 * Pour envoyer des données à l'application :
-
-	curl -H "Content-Type: application/json" -X POST -d '{"fullName":"Other Person","jobTitle":"Other Title"}' http://localhost:8080/people
+`curl -H "Content-Type: application/json" -X POST -d '{"fullName":"Other Person","jobTitle":"Other Title"}' http://localhost:8080/people`    
 	
 	Ouvrir http://localhost:8080/people
+	
+## Pipeline
+Pour ce projet j'ai choisi d'utiliser l'outil d'intégration continue Github Action avec la fonctionnalité Java maven project. 
+
+Cette [pipeline](https://github.com/elb29/ProjCICD/blob/master/.github/workflows/maven.yml) est exécuté à chaque Push et Pull request effectué. 
+La pipeline est divisée en quatre étapes : Build, Tests in Java 8, Tests in Java 11 et Deploy. Comme schématisée sur le dessin plus bas après le Build, les deux étapes de tests sont effectuées parallèlement puis à la fin des deux phases de tests la phase Deploy est lancée.
+Les erreurs bloquant le processus de pipeline, elles empêchent aussi les pull request provocant des erreurs de se finir. 
+
+![Schéma de la pipeline](https://github.com/elb29/ProjCICD/blob/master/img/pipeline.png)
+
