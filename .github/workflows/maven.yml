@@ -48,8 +48,8 @@ jobs:
     - uses: actions/checkout@v1
       with:
         java-version: 11
-    #- name: Deploy Javadoc
-      #run: mvn -B javadoc:javadoc --file pom.xml
+    - name: Deploy Javadoc
+      run: mvn -B javadoc:javadoc --file pom.xml
     - name: Deploy with maven
       run: mvn deploy
   
