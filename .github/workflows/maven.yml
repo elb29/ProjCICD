@@ -53,7 +53,10 @@ jobs:
     - name: Deploy with maven
       run: mvn deploy
     - name: jar
-      uses: java -jar target/dropwizard-example-2.0.3.jar
+      uses: actions/upload-artifact@v1
+      with:
+        name: artifact
+        path: target/dropwizard-example-2.0.3-SNAPSHOT.jar
    
    
   
