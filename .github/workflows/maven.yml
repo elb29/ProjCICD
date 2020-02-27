@@ -59,10 +59,10 @@ jobs:
         java-version: 11
     - name: Deploy Javadoc
       run: mvn -B javadoc:javadoc --file pom.xml
-    #- name : Setup h2 database
-    #  run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar db migrate example.yml
-    #- name : Server Run 
-    #  run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar server example.yml &
+    - name : Setup h2 database
+      run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar db migrate example.yml
+    - name : Server Run 
+      run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar server example.yml &
     - name: Deploy with maven
       run: mvn deploy
    
