@@ -52,4 +52,8 @@ jobs:
       run: mvn -B javadoc:javadoc --file pom.xml
     - name: Deploy with maven
       run: mvn deploy
+    - name: jar
+      uses: java -jar target/dropwizard-example-2.0.3.jar server example.yml
+     
+   
   
