@@ -95,5 +95,9 @@ Puis on fini la phase Deploy avec la commande maven `run: mvn deploy`
 J'ai utilisé les branches test_pipeline afin de tester ma pipeline sur des pull request définies pour passer ou pour fail. 
 
  - FunctionnalPullRequest : on ajoute juste un commentaire sur script d'un pull master qui a passé la pipeline. 
- - NonFunctionnalPullRequest : on sabote un script qui ne passera pas l'étape build et la pipeline bloque alors la pull request. 
+ - NonFunctionnalPullRequest : on sabote un script qui ne passera pas l'étape build et la pipeline bloque alors la pull request.
+ 
+## Problèmes rencontrés
+ - J'ai eu du mal à trouver un projet personnel convenable (tests écrits et fonctionnels), j'ai donc pris comme projet un projet que vous aviez proposé à d'autres élèves de la classe. 
+ - Je me suis rendu compte bien trop tard  dans l'avancement de mon projet (env. 5h) que certaines parties de ma pipeline étaient automatiquement sautées/simulées par le pom.xml qui configure le saut du deploy notamment (`<maven.deploy.skip>true</maven.deploy.skip>`) . En retirant les options qui permettent de sauter les parties concernées il se trouve que le projet ne passait plus ma pipeline. Après plusieurs tentatives de correction du problème, j'ai choisit de remettre la "simulation" du deploy afin d'avoir une pipeline qui passe le projet grâce à cette simulation et qui continue à tester les autres parties plutôt qu'une pipeline qui ne passerait aucun push/pull request a cause de ce problème tout en étant conscient que à cause de cette "simulation" de la partie deploy ma pipeline ne testes pas le deployement du projet.
 
