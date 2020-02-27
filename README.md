@@ -1,54 +1,36 @@
-# Introduction
+## Projet CI/CD
+Ce dépôt est mon rendu pour le projet du cours de CI/CD. L'objectif de ce projet est de mettre en place une pipeline permettant la livraison continue du projet. 
 
-The Dropwizard example application was developed to, as its name implies, provide examples of some of the features
-present in Dropwizard.
+## Application
+Le projet est tiré des exemples du projet [Dropwizard](https://github.com/dropwizard/dropwizard).
 
-# Overview
+Cette application comprend un exemple du module optionnel DB API. Les exemples fournis illustrent quelques les fonctionnalités disponibles dans [Hibernate](http://hibernate.org/), ainsi que la démonstration de leur utilisation à l'intérieur Dropwizard.
 
-Included with this application is an example of the optional DB API module. The examples provided illustrate a few of
-the features available in [Hibernate](http://hibernate.org/), along with demonstrating how these are used from within
-Dropwizard.
+Cet exemple de base de données comprend plusieures classes de Dropwizard. Pour plus d'information : [README](https://github.com/dropwizard/dropwizard/blob/master/dropwizard-example/README.md). 
 
-This database example is comprised of the following classes:
+## Utilisation de l'application
+Pour tester l'exemple, suivre les indications ci-dessous :
 
-* The `PersonDAO` illustrates using the Data Access Object pattern with assisting of Hibernate.
-
-* The `Person` illustrates mapping of Java classes to database tables with assisting of JPA annotations.
-
-* All the JPQL statements for use in the `PersonDAO` are located in the `Person` class.
-
-* `migrations.xml` illustrates the usage of `dropwizard-migrations` which can create your database prior to running
-your application for the first time.
-
-* The `PersonResource` and `PeopleResource` are the REST resource which use the PersonDAO to retrieve data from the database, note the injection
-of the PersonDAO in their constructors.
-
-As with all the modules the db example is wired up in the `initialize` function of the `HelloWorldApplication`.
-
-# Running The Application
-
-To test the example application run the following commands.
-
-* To create the example, package the application using [Apache Maven](https://maven.apache.org/) from the root dropwizard directory.
+* Pour construire l'exemple utiliser  [Apache Maven](https://maven.apache.org/)  pour packager le projet :
 
         cd dropwizard
         ./mvnw package
         cd dropwizard-example
 
-* To setup the h2 database run.
+* Pour mettre en place la base de données h2 : 
 
         java -jar target/dropwizard-example-$DW_VERSION.jar db migrate example.yml
 
-* To run the server run.
+* Pour lancer le server : 
 
         java -jar target/dropwizard-example-$DW_VERSION.jar server example.yml
 
-* To hit the Hello World example (hit refresh a few times).
+* Pour avoir l'exemple Hello World :
 
 	http://localhost:8080/hello-world
 
-* To post data into the application.
+* Pour envoyer des données à l'application :
 
 	curl -H "Content-Type: application/json" -X POST -d '{"fullName":"Other Person","jobTitle":"Other Title"}' http://localhost:8080/people
 	
-	open http://localhost:8080/people
+	Ouvrir http://localhost:8080/people
