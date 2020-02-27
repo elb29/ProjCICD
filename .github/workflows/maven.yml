@@ -50,6 +50,6 @@ jobs:
         java-version: 11
     #- name: Deploy Javadoc
       #run: mvn -B javadoc:javadoc --file pom.xml
-    - name: Build with maven
+    - name: Deploy with maven
       run: mvn deploy
   
