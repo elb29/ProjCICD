@@ -42,4 +42,32 @@ La pipeline est divisée en quatre étapes : Build, Tests in Java 8, Tests in Ja
 Les erreurs bloquant le processus de pipeline, elles empêchent aussi les pull request provocant des erreurs de se finir. 
 
 ![Schéma de la pipeline](https://github.com/elb29/ProjCICD/blob/master/img/pipeline.png)
+## Phase Build
+La phase build permet de tester si le projet est compilable : `mvn compile --file pom.xml` . Si elle échoue alors la pipeline est arrêtée. Elle effectue aussi la commande `mvn site`.
 
+## Phases de Tests
+Les phases de tests permettent d'effectuer les différents tests sous Java 8 et sous Java 11. Pour cela on attend tout d'abord que la phase précédente (Build) soit finie grâce à `needs : [build]`. Puis on spécifie la version de java sous laquelle effectuer les tests grâce à un setup du JDK : 
+
+``` 
+name: Set up JDK 1.11 
+	uses: actions/setup-java@v1
+	with:
+		java-version: 1.11 
+```
+Pour lancer les tests, on utilise la commande maven `run: mvn test --file pom.xml`. Si l'une de ces sous-étapes échoue, le pipeline s'arrête.
+
+
+## Phase de Deploy
+
+Dans la phase de Deploy on utilise la commande : `mvn -B javadoc:javadoc --file pom.xml` afin de créer la documentation statique de notre projet.
+
+J'ai ensuite voulu lancer les commandes demandées dans la documentation du projet afin de préparer la h2 database et lancer le serveur : 
+``` 
+- name : Setup h2 database
+	run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar db migrate example.yml
+- name : Server Run
+	run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar server example.yml &
+```
+Cependant je n'ai pas réussi à faire fonctionner dans ma pipeline cette partie du code j'ai donc commenté ces commandes. 
+
+Puis on fini la phase Deploy avec la commande maven `run: mvn deploy`
