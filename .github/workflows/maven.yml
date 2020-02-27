@@ -50,13 +50,13 @@ jobs:
         java-version: 11
     - name: Deploy Javadoc
       run: mvn -B javadoc:javadoc --file pom.xml
+    - name : oui
+      run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar db migrate example.yml
+    - name : oui2 
+      run : java -jar target/dropwizard-example-2.0.3-SNAPSHOT.jar server example.yml &
     - name: Deploy with maven
       run: mvn deploy
-    - name: jar
-      uses: actions/upload-artifact@v1
-      with:
-        name: artifact
-        path: target/dropwizard-example-2.0.3-SNAPSHOT.jar
+   
    
    
   
