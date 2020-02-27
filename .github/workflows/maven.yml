@@ -51,10 +51,5 @@ jobs:
     #- name: Deploy Javadoc
       #run: mvn -B javadoc:javadoc --file pom.xml
     - name: Build with maven
-      run: mvn clean verify --file pom.xml
-    - name: Upload Maven build artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: artifact
-        path: target/project-0.0.1.jar
-      
+      run: mvn deploy
+  
