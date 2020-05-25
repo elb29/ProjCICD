@@ -64,6 +64,7 @@ public class IntegrationTest {
         assertThat(newPerson.getId()).isNotNull();
         assertThat(newPerson.getFullName()).isEqualTo(person.getFullName());
         assertThat(newPerson.getJobTitle()).isEqualTo(person.getJobTitle());
+        assertThat("failure".isEqualTo("success"));
     }
 
     @Test
